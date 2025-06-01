@@ -323,5 +323,54 @@ $ mv ConcreteFactoryX.cpp ConcreteProductAX.cpp ConcreteFactoryY.cpp ConcretePro
 $ cd src  
 $ edit CMakeLists.txt
 
+$ git branch test_build
+$ git branch                       
+* main
+  test_build
+$ git checkout test_build 
+
+$ mkdir -p build 
+$ cd build 
+$ cmake ..                           
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/wfs/WaitForSummer/workspace/projects/RK2/build
+$  make          
+[ 11%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteFactoryX.cpp.o
+[ 22%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteFactoryY.cpp.o
+[ 33%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteProductAX.cpp.o
+[ 44%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteProductAY.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteProductBX.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/abstract_factory_lib.dir/ConcreteProductBY.cpp.o
+[ 77%] Linking CXX static library libabstract_factory_lib.a
+[ 77%] Built target abstract_factory_lib
+[ 88%] Building CXX object CMakeFiles/main.dir/main.cpp.o
+[100%] Linking CXX executable main
+[100%] Built target main
+$ ls
+CMakeCache.txt  CMakeFiles  cmake_install.cmake  main  Makefile  src
+$ ./main
+Initializing ConcreteProductAY
+Performing task for ConcreteProductAY
+Initializing ConcreteProductBY
+Performing task for ConcreteProductBY
+$ cd ..
+$ rm -rf build
+
+$ git checkout main
+$ git branch -d test_build 
+Deleted branch test_build (was 64ddc23).
 
 ```
