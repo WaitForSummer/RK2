@@ -6,12 +6,12 @@ ConcreteFactoryX::ConcreteFactoryX()
 {
 }
 
-IProdcutA *ConcreteFactoryX::createConcreteProductA() const
+IProductA *ConcreteFactoryX::createConcreteProductA() const
 {
     return new ConcreteProductAX();
 }
 
-IProdcutB *ConcreteFactoryX::createConcreteProductB() const
+IProductB *ConcreteFactoryX::createConcreteProductB() const
 {
     return new ConcreteProductBX();
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-class IProdcutB
+class IProductB
 {
 public:
     virtual void init() const = 0;

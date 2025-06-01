@@ -1,6 +1,6 @@
 #include "IProductA.h"
 
-class ConcreteProductAY : public IProdcutA
+class ConcreteProductAY : public IProductA
 {
 public:
     ConcreteProductAY();

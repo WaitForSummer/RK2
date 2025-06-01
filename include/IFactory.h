@@ -6,6 +6,6 @@
 class IFactory
 {
 public:
-    virtual IProdcutA* createConcreteProductA() const = 0;
-    virtual IProdcutB* createConcreteProductB() const = 0;
+    virtual IProductA* createConcreteProductA() const = 0;
+    virtual IProductB* createConcreteProductB() const = 0;
 };

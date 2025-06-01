@@ -5,7 +5,7 @@ class ConcreteFactoryY : public IFactory
 public:
     ConcreteFactoryY();
 
-    IProdcutA* createConcreteProductA() const override;
-    IProdcutB* createConcreteProductB() const override;
+    IProductA* createConcreteProductA() const override;
+    IProductB* createConcreteProductB() const override;
 };
 
