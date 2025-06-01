@@ -1,3 +1,4 @@
+```sh
 $ git clone https://github.com/sprakhar77/Design-Patterns.git RK2 
 Cloning into 'RK2'...
 remote: Enumerating objects: 395, done.
@@ -312,4 +313,4 @@ $ tree
 $ g++ ConcreteFactoryX.cpp ConcreteFactoryY.cpp ConcreteProductAX.cpp ConcreteProductBX.cpp ConcreteProductAY.cpp ConcreteProductBY.cpp main.cpp -o  #Проерка того, что код собирается локально
 
 $ rm -rf main
-
+```
