@@ -34,6 +34,20 @@ jobs:
     - name: Run tests
       run: cd build && ctest --output-on-failure
 
+      - name: Write control file
+      id: write_control
+      run: |
+        echo "::set-output name=control::$(cat <<EOF
+Package: design-pattern-factory
+Version: 1.0.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: WFS monstr5665@gmail.com
+Description: Factory design pattern implementation with unit tests
+EOF
+        )"
+        
     - name: Package into deb
       run: |
         mkdir -p package/DEBIAN
@@ -41,13 +55,7 @@ jobs:
 
         cp build/main_exec package/usr/local/bin/
 
-        echo "Package: design-pattern-factory" > package/DEBIAN/control
-        echo "Version: 1.0.0" >> package/DEBIAN/control
-        echo "Section: base" >> package/DEBIAN/control
-        echo "Priority: optional" >> package/DEBIAN/control
-        echo "Architecture: amd64" >> package/DEBIAN/control
-        echo "Maintainer: WFS monstr5665@gmail.com" >> package/DEBIAN/control
-        echo "Description: Factory design pattern implementation with unit tests" >> package/DEBIAN/control
+         echo "${{ steps.write_control.outputs.control }}" > package/DEBIAN/control
 
         dpkg-deb --build package
         mv package.deb design-pattern-factory_1.0.0.deb
