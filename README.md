@@ -1,6 +1,15 @@
+# Рубежный контроль
+## 26 вариант
+## ИУ8-21 
+1. Настройка и подготовка к работе
 ```sh
 $ alias edit=code
 $ git clone https://github.com/sprakhar77/Design-Patterns.git RK2 
+```
+<details>
+<summary>Вывод команды</summary>
+
+```sh
 Cloning into 'RK2'...
 remote: Enumerating objects: 395, done.
 remote: Counting objects: 100% (395/395), done.
@@ -8,10 +17,20 @@ remote: Compressing objects: 100% (290/290), done.
 remote: Total 395 (delta 140), reused 358 (delta 103), pack-reused 0 (from 0)
 Receiving objects: 100% (395/395), 49.55 KiB | 465.00 KiB/s, done.
 Resolving deltas: 100% (140/140), done.
+```
+</details>
 
+```sh
 $ cd RK2
-
+```
+2. Проверка
+```sh
 $ tree
+```
+<details>
+<summary>Вывод команды</summary>
+
+```sh
 .
 ├── Behavioral
 │   ├── Chain Of Responsibility
@@ -272,7 +291,11 @@ $ tree
         └── Proxy.pro
 
 26 directories, 232 files
+```
+</details>
 
+3. Подготовка локальных каталогов
+```sh
 $ cd Creational/Abstract\ Factory
 
 $ cp -rf . ../..
@@ -282,14 +305,27 @@ $ cd ..
 $ cd ..
 
 $ ls
+```
+<details>
+<summary>Вывод команды</summary>
+
+```sh
 AbstractFactory.pro   ConcreteFactoryY.cpp   ConcreteProductAY.cpp  ConcreteProductBY.cpp  IProductA.h  Structural
 Behavioral            ConcreteFactoryY.h     ConcreteProductAY.h    ConcreteProductBY.h    IProductB.h
 ConcreteFactoryX.cpp  ConcreteProductAX.cpp  ConcreteProductBX.cpp  Creational             main.cpp
 ConcreteFactoryX.h    ConcreteProductAX.h    ConcreteProductBX.h    IFactory.h             README.md
+```
+</details>
 
+```sh
 $ rm -rf README.md Structural Behavioral Creational 
 
 $ tree
+```
+<details>
+<summary>Вывод команды</summary>
+
+```sh
 .
 ├── AbstractFactory.pro
 ├── ConcreteFactoryX.cpp
@@ -310,7 +346,10 @@ $ tree
 └── main.cpp
 
 1 directory, 17 files
+```
+</details>
 
+```sh
 $ g++ ConcreteFactoryX.cpp ConcreteFactoryY.cpp ConcreteProductAX.cpp ConcreteProductBX.cpp ConcreteProductAY.cpp ConcreteProductBY.cpp main.cpp -o  #Проерка того, что код собирается локально
 $ rm -rf main
 
@@ -320,8 +359,15 @@ $ mkdir src
 $ mv ConcreteFactoryX.h ConcreteFactoryY.h ConcreteProductAX.h ConcreteProductAY.h ConcreteProductBX.h ConcreteProductBY.h IFactory.h IProductB.h IProductA.h include 
 
 $ mv ConcreteFactoryX.cpp ConcreteProductAX.cpp ConcreteFactoryY.cpp ConcreteProductAY.cpp ConcreteProductBX.cpp ConcreteProductBY.cpp src/
-
+```
+4. Подключения сабмодуля локально для тестов
+```sh
 $ git submodule add https://github.com/google/googletest third-party/gtest
+```
+<details>
+<summary>Вывод команды</summary>
+
+```sh
 Cloning into '/home/wfs/WaitForSummer/workspace/projects/RK2/third-party/gtest'...
 remote: Enumerating objects: 28121, done.
 remote: Counting objects: 100% (322/322), done.
@@ -329,7 +375,11 @@ remote: Compressing objects: 100% (213/213), done.
 remote: Total 28121 (delta 210), reused 115 (delta 109), pack-reused 27799 (from 5)
 Receiving objects: 100% (28121/28121), 13.62 MiB | 2.54 MiB/s, done.
 Resolving deltas: 100% (20813/20813), done.
+```
+</details>
 
+5. Проврка работы cmake и кода после сборки
+```sh
 $ cd src  
 $ edit CMakeLists.txt
 
@@ -341,7 +391,12 @@ $ git checkout test_build
 
 $ mkdir -p build 
 $ cd build 
-$ cmake ..                           
+$ cmake ..  
+```
+<details>   
+<summary>Вывод cmake</summary>
+
+```sh
 -- The C compiler identification is GNU 14.2.0
 -- The CXX compiler identification is GNU 14.2.0
 -- Detecting C compiler ABI info
@@ -369,6 +424,10 @@ $  make
 [ 88%] Building CXX object CMakeFiles/main.dir/main.cpp.o
 [100%] Linking CXX executable main
 [100%] Built target main
+```
+</details>
+
+```sh
 $ ls
 CMakeCache.txt  CMakeFiles  cmake_install.cmake  main  Makefile  src
 $ ./main
@@ -382,17 +441,22 @@ $ rm -rf build
 $ git checkout main
 $ git branch -d test_build 
 Deleted branch test_build (was 64ddc23).
-
+```
+6. Создание тестов
+```sh
 $ mkdir tests  
 $ edit tests/CMakeLists.txt
 $ edit test_factory.cpp
 $ edit test_product.cpp
 $ mv test_factory.cpp test_product.cpp tests
-
+```
+7. Удаление ненужного для данного задания файла
+```sh
 $ rm -rf AbstractFactory.pro
-
+```
+8. Создания .yml-файла для Github Actions
+```sh
 $ mkdir .github
 $ mkdir .github/workflows
 $ edit .github/workflows/build.yml
-
 ```
