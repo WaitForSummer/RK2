@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install dependencies
       run: |
@@ -46,7 +46,7 @@ jobs:
         mv package.deb design-pattern-factory_1.0.0.deb
 
     - name: Upload .deb as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: design-pattern-package
         path: design-pattern-factory_1.0.0.deb
@@ -57,7 +57,7 @@ jobs:
 
     steps:
     - name: Download artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: design-pattern-package
         path: .
