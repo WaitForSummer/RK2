@@ -1,0 +1,74 @@
+name: CI Build, Test, Package and Release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build-test-package:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential fakeroot dpkg-dev
+
+    - name: Configure CMake
+      run: cmake -S . -B build
+
+    - name: Build
+      run: cmake --build build -- -j$(nproc)
+
+    - name: Run tests
+      run: cd build && ctest --output-on-failure
+
+    - name: Package into deb
+      run: |
+        mkdir -p package/DEBIAN
+        mkdir -p package/usr/local/bin
+
+        cp build/my_executable package/usr/local/bin/
+
+        cat > package/DEBIAN/control <<EOF
+Package: design-pattern-factory
+Version: 1.0.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: WFS monstr5665@gmail.com
+Description: Factory design pattern implementation with unit tests
+EOF
+
+        dpkg-deb --build package
+        mv package.deb design-pattern-factory_1.0.0.deb
+
+    - name: Upload .deb as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: design-pattern-package
+        path: design-pattern-factory_1.0.0.deb
+
+  release:
+    needs: build-test-package
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: design-pattern-package
+        path: .
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.0
+        name: Release v1.0.0
+        files: design-pattern-factory_1.0.0.deb
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
