@@ -17,7 +17,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y cmake build-essential fakeroot dpkg-dev
-
+    
+    - name: Check gtest directory contents
+      run: |
+        echo "Listing contents of third-party/gtest:"
+        ls -la third-party/gtest || echo "Directory third-party/gtest does not exist!"
+      
     - name: Configure CMake
       run: cmake -S . -B build
 
