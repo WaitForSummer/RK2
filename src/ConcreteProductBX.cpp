@@ -13,5 +13,5 @@ std::string ConcreteProductBX::init() const
 
 std::string ConcreteProductBX::performTask() const
 {
-    return "Performing task for ConcreteProductBX";
+    return "Task from Product B of Factory X";
 }
