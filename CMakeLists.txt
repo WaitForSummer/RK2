@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(include)
 
 add_subdirectory(src)
+add_subdirectory(tests)
 
-add_executable(main main.cpp)
-target_link_libraries(main PRIVATE abstract_factory_lib)
+add_executable(abstract_factory_main main.cpp)
+target_include_directories(abstract_factory_main PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(abstract_factory_main abstract_factory_lib)
