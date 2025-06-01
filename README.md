@@ -311,6 +311,8 @@ $ tree
 1 directory, 17 files
 
 $ g++ ConcreteFactoryX.cpp ConcreteFactoryY.cpp ConcreteProductAX.cpp ConcreteProductBX.cpp ConcreteProductAY.cpp ConcreteProductBY.cpp main.cpp -o  #Проерка того, что код собирается локально
-
 $ rm -rf main
+
+$ mkdir include
+$ mkdir src
 ```

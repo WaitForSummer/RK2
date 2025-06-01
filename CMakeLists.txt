@@ -4,8 +4,9 @@ project(AbstractFactoryExample)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-file(GLOB SOURCES
-    "*.cpp"
-)
+include_directories(include)
 
-add_executable(abstract_factory_demo ${SOURCES})
+add_subdirectory(src)
+
+add_executable(main main.cpp)
+target_link_libraries(main PRIVATE abstract_factory_lib)
