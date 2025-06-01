@@ -16,12 +16,13 @@ include(FetchContent)
 
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.14.0
 )
 set(INSTALL_GTEST OFF)
 FetchContent_MakeAvailable(googletest)
-enable_testing()
 
+enable_testing()
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS "tests/*.cpp")
 add_executable(run_tests ${TEST_SOURCES})
 target_link_libraries(run_tests
