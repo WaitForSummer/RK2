@@ -315,4 +315,13 @@ $ rm -rf main
 
 $ mkdir include
 $ mkdir src
+
+$ mv ConcreteFactoryX.h ConcreteFactoryY.h ConcreteProductAX.h ConcreteProductAY.h ConcreteProductBX.h ConcreteProductBY.h IFactory.h IProductB.h IProductA.h include 
+
+$ mv ConcreteFactoryX.cpp ConcreteProductAX.cpp ConcreteFactoryY.cpp ConcreteProductAY.cpp ConcreteProductBX.cpp ConcreteProductBY.cpp src/
+
+$ cd src  
+$ edit CMakeLists.txt
+
+
 ```
