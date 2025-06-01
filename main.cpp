@@ -14,11 +14,11 @@ int main()
 #endif
 
     // Products will now be made specifc to that OS
-    IProdcutA *productA = factory->createConcreteProductA();
+    IProductA *productA = factory->createConcreteProductA();
     productA->init();
     productA->performTask();
 
-    IProdcutB *productB = factory->createConcreteProductB();
+    IProductB *productB = factory->createConcreteProductB();
     productB->init();
     productB->performTask();
 
