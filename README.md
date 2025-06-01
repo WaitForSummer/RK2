@@ -1,4 +1,5 @@
 ```sh
+$ alias edit=code
 $ git clone https://github.com/sprakhar77/Design-Patterns.git RK2 
 Cloning into 'RK2'...
 remote: Enumerating objects: 395, done.
@@ -320,6 +321,15 @@ $ mv ConcreteFactoryX.h ConcreteFactoryY.h ConcreteProductAX.h ConcreteProductAY
 
 $ mv ConcreteFactoryX.cpp ConcreteProductAX.cpp ConcreteFactoryY.cpp ConcreteProductAY.cpp ConcreteProductBX.cpp ConcreteProductBY.cpp src/
 
+$ git submodule add https://github.com/google/googletest third-party/gtest
+Cloning into '/home/wfs/WaitForSummer/workspace/projects/RK2/third-party/gtest'...
+remote: Enumerating objects: 28121, done.
+remote: Counting objects: 100% (322/322), done.
+remote: Compressing objects: 100% (213/213), done.
+remote: Total 28121 (delta 210), reused 115 (delta 109), pack-reused 27799 (from 5)
+Receiving objects: 100% (28121/28121), 13.62 MiB | 2.54 MiB/s, done.
+Resolving deltas: 100% (20813/20813), done.
+
 $ cd src  
 $ edit CMakeLists.txt
 
@@ -377,8 +387,12 @@ $ mkdir tests
 $ edit tests/CMakeLists.txt
 $ edit test_factory.cpp
 $ edit test_product.cpp
+$ mv test_factory.cpp test_product.cpp tests
 
 $ rm -rf AbstractFactory.pro
 
+$ mkdir .github
+$ mkdir .github/workflows
+$ edit .github/workflows/build.yml
 
 ```
