@@ -39,7 +39,7 @@ jobs:
         mkdir -p package/DEBIAN
         mkdir -p package/usr/local/bin
 
-        cp build/my_exec package/usr/local/bin/
+        cp build/main_exec package/usr/local/bin/
 
         echo "Package: design-pattern-factory" > package/DEBIAN/control
         echo "Version: 1.0.0" >> package/DEBIAN/control
