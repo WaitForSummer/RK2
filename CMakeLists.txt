@@ -12,7 +12,14 @@ target_include_directories(abstract_factory_lib PUBLIC ${CMAKE_SOURCE_DIR}/inclu
 add_executable(main_exec main.cpp)
 target_link_libraries(main_exec abstract_factory_lib)
 
-add_subdirectory(third-party/gtest)
+include(FetchContent)
+
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+)
+set(INSTALL_GTEST OFF)
+FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS "tests/*.cpp")
