@@ -373,4 +373,12 @@ $ git checkout main
 $ git branch -d test_build 
 Deleted branch test_build (was 64ddc23).
 
+$ mkdir tests  
+$ edit tests/CMakeLists.txt
+$ edit test_factory.cpp
+$ edit test_product.cpp
+
+$ rm -rf AbstractFactory.pro
+
+
 ```
