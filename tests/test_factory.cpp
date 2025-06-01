@@ -4,8 +4,8 @@
 
 TEST(FactoryTest, FactoryXProducesCorrectProducts) {
     ConcreteFactoryX fx;
-    auto a = fx.createProductA();
-    auto b = fx.createProductB();
+    auto a = fx.createConcreteProductA();
+    auto b = fx.createConcreteProductB();
 
     EXPECT_EQ(a->performTask(), "Task from Product A of Factory X");
     EXPECT_EQ(b->performTask(), "Task from Product B of Factory X");
@@ -16,8 +16,8 @@ TEST(FactoryTest, FactoryXProducesCorrectProducts) {
 
 TEST(FactoryTest, FactoryYProducesCorrectProducts) {
     ConcreteFactoryY fy;
-    auto a = fy.createProductA();
-    auto b = fy.createProductB();
+    auto a = fy.createConcreteProductA();
+    auto b = fy.createConcreteProductB();
 
     EXPECT_EQ(a->performTask(), "Task from Product A of Factory Y");
     EXPECT_EQ(b->performTask(), "Task from Product B of Factory Y");

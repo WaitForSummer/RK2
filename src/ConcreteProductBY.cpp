@@ -6,12 +6,12 @@ ConcreteProductBY::ConcreteProductBY()
 {
 }
 
-void ConcreteProductBY::init() const
+std::string ConcreteProductBY::init() const
 {
-    std::cout << "Initializing ConcreteProductBY" << std::endl;
+    return "Initializing ConcreteProductBY";
 }
 
-void ConcreteProductBY::performTask() const
+std::string ConcreteProductBY::performTask() const
 {
-    std::cout << "Performing task for ConcreteProductBY" << std::endl;
+    return "Performing task for ConcreteProductBY";
 }

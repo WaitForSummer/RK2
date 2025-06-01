@@ -6,12 +6,12 @@ ConcreteProductAX::ConcreteProductAX()
 {
 }
 
-void ConcreteProductAX::init() const
+std::string ConcreteProductAX::init() const
 {
-    std::cout << "Initializing ConcreteProductAX" << std::endl;
+    return "Initializing ConcreteProductAX";
 }
 
-void ConcreteProductAX::performTask() const
+std::string ConcreteProductAX::performTask() const
 {
-    std::cout << "Performing task for ConcreteProductAX" << std::endl;
+    return "Performing task for ConcreteProductAX";
 }

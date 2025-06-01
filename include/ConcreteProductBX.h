@@ -1,10 +1,10 @@
 #include "IProductB.h"
-
+#include <string>
 class ConcreteProductBX : public IProductB
 {
 public:
     ConcreteProductBX();
 
-    void init() const override;
-    void performTask() const override;
+    std::string init() const override;
+    std::string performTask() const override;
 };
